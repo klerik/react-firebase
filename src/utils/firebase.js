@@ -15,6 +15,8 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
+export const fireBseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
+
 export const carsCollection = db
     .collection('cars');
 

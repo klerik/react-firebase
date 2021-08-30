@@ -16,7 +16,7 @@ const Cars = () => {
             .doc('pnTa8rPtc5C6LNkTJaef')
             .get()
             .then(snapshot => {
-                console.log(snapshot.data())
+                // console.log(snapshot.data())
         })
 
         // employeeRef.get().then((querySnapshot) => {
@@ -27,7 +27,7 @@ const Cars = () => {
 
     const getAllTheCars = () => {
         carsCollection
-            .orderBy('price', 'desc')
+            .orderBy('createdAt', 'asc')
             .get()
             .then(snapshot => {
                 const cars = firebaseLooper(snapshot);
