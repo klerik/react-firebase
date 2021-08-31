@@ -25,30 +25,36 @@ const Forms = () => {
 
         /// set data (if you need custom id) - if you do not set id - firebase create id
 
-        // carsCollection.doc('id').set({
+        carsCollection.doc('customId').set({
+            ...state,
+            price: parseInt(state.price),
+            available: !!state.available,
+            createdAt: fireBseTimestamp(),
+            dealers: {
+               washington: true,
+               california: true,
+               newYork: true
+            },
+            tags: ['good', 'comfortable', 'expensive']
+        }).then((data) => {
+            history.push('/cars');
+        }).catch(e => {
+            throw new Error(e);
+        })
+
+        /// add to the db
+
+        // carsCollection.add({
         //     ...state,
         //     price: parseInt(state.price),
         //     available: !!state.available,
         //     createdAt: fireBseTimestamp()
         // }).then((data) => {
+        //     console.log(data)
         //     history.push('/cars');
         // }).catch(e => {
         //     throw new Error(e);
         // })
-
-        /// add to the db
-
-        carsCollection.add({
-            ...state,
-            price: parseInt(state.price),
-            available: !!state.available,
-            createdAt: fireBseTimestamp()
-        }).then((data) => {
-            console.log(data)
-            history.push('/cars');
-        }).catch(e => {
-            throw new Error(e);
-        })
     }
 
     const changeHandler = (e) => {

@@ -26,3 +26,18 @@ export const employeeRef = db
     .collection('admins')
 
 export default firebase;
+
+// /// Update object
+// carsCollection.doc('customId').update({
+//     "dealers.california": false
+// })
+
+// /// Add new item in array
+// carsCollection.doc('customId').update({
+//     "tags": firebase.firestore.FieldValue.arrayUnion('New Value')
+// })
+//
+// /// Delete item from array
+// carsCollection.doc('customId').update({
+//     "tags": firebase.firestore.FieldValue.arrayRemove('New Value')
+// })
